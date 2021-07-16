@@ -8,11 +8,10 @@ namespace Gerador_de_pessoa_Vini
     {
         static void Main(string[] args)
         {
-            Pessoa vini = new Pessoa(); // (vini) é uma variavel (Pessoa) é o tipo do dado
-            //vini.cpf = "40210741805";
-            //vini.cpf = CpfUtils.GerarCpf(); // (essa linha esta trazendo a geração não utilizando o Bogus)
-           
-            vini.cpf = new Bogus.Faker("pt_BR").Person.Cpf();
+            Pessoa vini = new()
+            {
+                cpf = new Faker("pt_BR").Person.Cpf()
+            }; 
 
             Console.WriteLine(vini.cpf);  
         }
