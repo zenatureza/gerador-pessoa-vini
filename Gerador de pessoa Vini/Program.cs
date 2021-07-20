@@ -8,12 +8,14 @@ namespace Gerador_de_pessoa_Vini
     {
         static void Main(string[] args)
         {
-            Pessoa vini = new()
+            Pessoa vini = new Pessoa()
             {
-                cpf = new Faker("pt_BR").Person.Cpf()
-            }; 
+                Cpf = new Faker("pt_BR").Person.Cpf(),
+                Nome = new Faker().Person.FullName
+            };
 
-            Console.WriteLine(vini.cpf);  
+            Console.WriteLine(vini.Cpf);
+            Console.WriteLine(vini.Nome);
         }
     }
 }
