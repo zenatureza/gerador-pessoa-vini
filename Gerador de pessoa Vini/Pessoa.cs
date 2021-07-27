@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Bogus;
+using Bogus.Extensions.Brazil;
 
-namespace Gerador_de_pessoa_Vini
+namespace GeradorDePessoa
 {
-    class Pessoa
+    public class Pessoa
     {
         public string Nome { get; set; }
         public string Cpf { get; set; }
@@ -27,6 +24,17 @@ namespace Gerador_de_pessoa_Vini
         public Pessoa()
         {
 
+        }
+
+        public static Pessoa GerarPessoa()
+        {
+            return new()
+            {
+                Cpf = new Faker("pt_BR").Person.Cpf(),
+                Nome = new Faker().Person.FullName,
+                Email = new Faker().Person.Email,
+                Perfil = "Loja Geral"
+            };
         }
     }
 }
